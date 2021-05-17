@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+   <title>Document</title>
+   <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      #sidebarMenu{
+         min-height: 100vh;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+   </style>
+</head>
+<body>
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">六角 小舖</a>
+   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+         <a class="nav-link" href="#">Sign out</a>
+      </li>
+   </ul>
+</header>
+
+<div class="container-fluid">
+   <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+         <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+               <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                     <span data-feather="home"></span>
+                     建立商品
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                     <span data-feather="file"></span>
+                     商品列表
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="addProcuct">
+         <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">建立新商品</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+               <div class="btn-group me-2">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+               </div>
+               <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                  <span data-feather="calendar"></span>
+                  This week
+               </button>
+            </div>
+         </div>
+         <form class="form " >
+            <div class="row mb-3">
+               <div class="col-sm-3">
+                  <div class="mb-3">
+                     <label for="title" class="form-label">名稱</label>
+                     <input type="text" class="form-control" id="title" placeholder="請輸入商品名稱" required>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <div class="mb-3">
+                     <label for="category" class="form-label">種類</label>
+                     <input type="text" class="form-control" id="category" placeholder="請輸入商品種類"  required>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <div class="mb-3">
+                     <label for="origin_price" class="form-label">原價</label>
+                     <input type="number" class="form-control" id="origin_price" placeholder="請輸入商品原價"  required>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <div class="mb-3">
+                     <label for="price" class="form-label">售價</label>
+                     <input type="number" class="form-control" id="price" placeholder="請輸入商品售價"  required>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <div class="mb-3">
+                     <label for="unit" class="form-label">單位</label>
+                     <input type="text" class="form-control" id="unit" placeholder="請輸入商品單位"  required>
+                  </div>
+               </div>
+               <div class="col-sm-3">
+                  <label for="is_enabled" class="form-label">是否啟用</label>
+                  <select class="form-select" id="is_enabled" aria-label="Default select example"  >
+                     <option selected disabled>--請選擇--</option>
+                     <option value="1">是</option>
+                     <option value="0">否</option>
+                  </select>
+               </div>
+               <div class="col-sm-6">
+                  <div class="mb-3">
+                     <label for="imageUrl" class="form-label">圖片網址</label>
+                     <input type="text" class="form-control" id="imageUrl" placeholder="請輸入圖片網址">
+                  </div>
+               </div>
+               <div class="col-12">
+                  <button type="sumit" class="btn btn-primary sendButton">建立產品</button>
+               </div>
+            </div>
+         </form>
+        
+         <h2>商品列表</h2>
+         <div class="table-responsive">
+            <table class="table table-striped table-sm">
+               <thead>
+                  <tr>
+                     <th width="100">編號</th>
+                     <th>產品名稱</th>
+                     <th width="100">原價</th>
+                     <th width="100">售價</th>
+                     <th width="100">是否啟用</th>
+                     <th width="200">操作</th>
+                  </tr>
+               </thead>
+               <tbody class="product-table">
+               </tbody>
+            </table>
+         </div>
+      </main>
+   </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header ">
+            <h5 class="modal-title" id="productModalLabel">修改商品</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            <div class="row mb-3">
+               <div class="col-sm-6">
+                  <div class="mb-3">
+                     <label for="title-modal" class="form-label">名稱</label>
+                     <input type="text" class="form-control" id="title-modal" placeholder="請輸入商品名稱"
+                            data-input="title">
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="mb-3">
+                     <label for="category-modal" class="form-label">種類</label>
+                     <input type="text" class="form-control" id="category-modal" placeholder="請輸入商品種類"
+                           data-input="category">
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="mb-3">
+                     <label for="origin_price-modal" class="form-label">原價</label>
+                     <input type="number" class="form-control" id="origin_price-modal" placeholder="請輸入商品原價" data-input="origin_price">
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="mb-3">
+                     <label for="price-modal" class="form-label">售價</label>
+                     <input type="number" class="form-control" id="price-modal" placeholder="請輸入商品售價"
+                           data-input="price">
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <div class="mb-3">
+                     <label for="unit-modal" class="form-label">單位</label>
+                     <input type="text" class="form-control" id="unit-modal" placeholder="請輸入商品單位"
+                            data-input="unit">
+                  </div>
+               </div>
+               <div class="col-sm-6">
+                  <label for="is_enabled-modal" class="form-label">是否啟用</label>
+                  <select class="form-select" id="is_enabled-modal" aria-label="Default select example"
+                          data-input="is_enabled">
+                     <option selected disabled>--請選擇--</option>
+                     <option value="1">是</option>
+                     <option value="0">否</option>
+                  </select>
+               </div>
+               <div class="col-sm-12">
+                  <div class="mb-3">
+                     <label for="imageUrl-modal" class="form-label">圖片網址</label>
+                     <input type="text" class="form-control" id="imageUrl-modal" placeholder="請輸入圖片網址"
+                            data-input="imageUrl">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary modalSend"  >確認</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js'
+   integrity='sha512-Xk3wWei2TGrsh9kDSBKUMIjw/86sLUvhtnv9f7fOuIwhhiUTKz8szkWkzHthrM5Bb3Bu9idSzkxOrkzhcneuiw=='
+   crossorigin='anonymous'></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+   integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+   integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+<script src="dashboard.js"></script>
+
+</script>   
+</body>
+</html>
